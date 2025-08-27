@@ -620,67 +620,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* yandex map */
-    const mapPlaceholder = document.getElementById('map-placeholder');
-    const mapCoordinates = document.getElementById('map').dataset.coordinates ? document.getElementById('map').dataset.coordinates.split(",") : [47.231129, 39.728721];
-    const mapCatalogue = document.getElementById('map').dataset.catalogue ? document.getElementById('map').dataset.catalogue : "";
-    const mapAddress = document.getElementById('map').dataset.address ? document.getElementById('map').dataset.address : "";
+    // const mapPlaceholder = document.getElementById('map-placeholder');
+    // const mapCoordinates = document.getElementById('map').dataset.coordinates ? document.getElementById('map').dataset.coordinates.split(",") : [47.231129, 39.728721];
+    // const mapCatalogue = document.getElementById('map').dataset.catalogue ? document.getElementById('map').dataset.catalogue : "";
+    // const mapAddress = document.getElementById('map').dataset.address ? document.getElementById('map').dataset.address : "";
 
-    console.log(mapCoordinates);
-    if (mapPlaceholder) {
-        mapPlaceholder.addEventListener('mouseenter', loadMap, { once: true });
-        mapPlaceholder.addEventListener('click', loadMap, { once: true });
-    } else {
-        loadMap();
-    }
+    // console.log(mapCoordinates);
+    // if (mapPlaceholder) {
+    //     mapPlaceholder.addEventListener('mouseenter', loadMap, { once: true });
+    //     mapPlaceholder.addEventListener('click', loadMap, { once: true });
+    // } else {
+    //     loadMap();
+    // }
 
-    function loadMap() {
-        if (!document.querySelector('[src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"]')) {
-            const script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
-            script.onload = initMap;
-            document.head.appendChild(script);
-        } else {
-            initMap();
-        }
-    }
+    // function loadMap() {
+    //     if (!document.querySelector('[src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"]')) {
+    //         const script = document.createElement('script');
+    //         script.type = 'text/javascript';
+    //         script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+    //         script.onload = initMap;
+    //         document.head.appendChild(script);
+    //     } else {
+    //         initMap();
+    //     }
+    // }
     
-    function initMap() {
-        const mapPlaceholder = document.getElementById('map-placeholder');
-        if (mapPlaceholder) {
-            mapPlaceholder.remove();
-        }
+    // function initMap() {
+    //     const mapPlaceholder = document.getElementById('map-placeholder');
+    //     if (mapPlaceholder) {
+    //         mapPlaceholder.remove();
+    //     }
     
-        ymaps.ready(function () {
-            const myMap = new ymaps.Map('map', {
-                center: mapCoordinates,
-                zoom: 13,
-                controls: []
-            });
+    //     ymaps.ready(function () {
+    //         const myMap = new ymaps.Map('map', {
+    //             center: mapCoordinates,
+    //             zoom: 13,
+    //             controls: []
+    //         });
     
-            const myPlacemark = new ymaps.Placemark(
-                mapCoordinates,
-                {
-                    hintContent: mapCatalogue + " " + mapAddress,
-                    balloonContent: mapCatalogue + " " + mapAddress
-                },
-                {
-                    iconLayout: 'default#image',
-                    iconImageHref: '/assets/img/icons/map-pin.png',  //заменить на свою иконку
-                    iconImageSize: [42, 50],
-                    iconImageOffset: [-20, -25],
-                }
-            );
+    //         const myPlacemark = new ymaps.Placemark(
+    //             mapCoordinates,
+    //             {
+    //                 hintContent: mapCatalogue + " " + mapAddress,
+    //                 balloonContent: mapCatalogue + " " + mapAddress
+    //             },
+    //             {
+    //                 iconLayout: 'default#image',
+    //                 iconImageHref: '/assets/img/icons/map-pin.png',  //заменить на свою иконку
+    //                 iconImageSize: [42, 50],
+    //                 iconImageOffset: [-20, -25],
+    //             }
+    //         );
     
 
-            console.log(myPlacemark);
+    //         console.log(myPlacemark);
 
 
 
-            myMap.geoObjects.add(myPlacemark);
-            myMap.behaviors.disable(['scrollZoom']);
-        });
-    }
+    //         myMap.geoObjects.add(myPlacemark);
+    //         myMap.behaviors.disable(['scrollZoom']);
+    //     });
+    // }
     /* end yandex map */
 
 
@@ -1170,3 +1170,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
   
+
